@@ -51,6 +51,17 @@ async def run_agent_analysis(
                 "is_demonstration": False,
                 "result": res
             }
+
+        if agent_id == "pulse_breach":
+            from backend.agents.pulse_breach import run_breach
+            res = await run_breach(content)
+            return {
+                "success": True,
+                "agent_id": agent_id,
+                "mode": AgentMode.PREVIEW,
+                "is_demonstration": False,
+                "result": res
+            }
         
         # Fallback for preview agents whose runner is being wired
         return {

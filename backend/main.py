@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.routes import agents, analyses
+from backend.departments import get_all_departments
 
 app = FastAPI(
     title="DarkPulse AI",
@@ -19,6 +20,12 @@ app.add_middleware(
 app.include_router(agents.router, prefix="/api/v1")
 app.include_router(analyses.router, prefix="/api/v1")
 
+@app.get("/api/v1/departments")
+async def list_departments():
+    """Returns the 8 general office departments operating DarkPulse AI."""
+    depts = get_all_departments()
+    return {"total": len(depts), "departments": depts}
+
 @app.get("/health")
 async def health_check():
     return {
@@ -27,7 +34,8 @@ async def health_check():
         "tagline": "Detect the Pulse of Every Threat",
         "version": "0.1.0",
         "agents_online": 3,
-        "agents_planned": 14
+        "agents_planned": 14,
+        "departments_active": 8
     }
 
 @app.get("/")
