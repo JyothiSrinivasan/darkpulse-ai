@@ -2,44 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
-
-    --primary: 346 87% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 346 87% 50%;
-    --radius: 0.5rem;
-  }
+/* Explicit Global Dark Theme Fallbacks */
+* {
+  box-sizing: border-box;
 }
 
-body {
+html, body {
   background-color: #050811 !important;
   color: #f8fafc !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+a {
+  color: #f8fafc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f87171;
 }
 
 /* Custom Cyber Scrollbar */
@@ -75,7 +58,7 @@ body {
   border: 1px solid #334155 !important;
   border-radius: 12px !important;
   color: #f8fafc !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7) !important;
 }
 
 .cl-userButtonPopoverMain {
@@ -101,39 +84,25 @@ body {
 .cl-userButtonPopoverActionButtonText {
   color: #f8fafc !important;
   font-weight: 600 !important;
-  font-size: 0.95rem !important;
 }
 
 .cl-userButtonPopoverActionButtonIcon {
   color: #ef4444 !important;
 }
 
-.cl-userButtonPopoverFooter {
+.cl-userButtonPopoverFooter,
+.cl-footer {
   background-color: #090d16 !important;
   border-top: 1px solid #334155 !important;
-  border-bottom-left-radius: 12px !important;
-  border-bottom-right-radius: 12px !important;
 }
 
 .cl-headerTitle {
   color: #ffffff !important;
   font-weight: 700 !important;
-  font-size: 1.35rem !important;
 }
 
 .cl-headerSubtitle {
   color: #cbd5e1 !important;
-  font-size: 0.95rem !important;
-}
-
-.cl-identityPreview,
-.cl-identityPreviewText {
-  color: #38bdf8 !important;
-  font-weight: 600 !important;
-  background-color: #1e293b !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
-  border: 1px solid #334155 !important;
 }
 
 .cl-formFieldLabel {
@@ -145,30 +114,10 @@ body {
   background-color: #1e293b !important;
   border: 1px solid #475569 !important;
   color: #ffffff !important;
-  font-weight: 500 !important;
-}
-
-.cl-formFieldInput:focus {
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
 }
 
 .cl-formButtonPrimary {
   background-color: #ef4444 !important;
   color: #ffffff !important;
   font-weight: 700 !important;
-  border-radius: 6px !important;
-  transition: all 0.2s ease !important;
-}
-
-.cl-formButtonPrimary:hover {
-  background-color: #dc2626 !important;
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4) !important;
-}
-
-.cl-footer {
-  background-color: #090d16 !important;
-  border-top: 1px solid #334155 !important;
-  border-bottom-left-radius: 12px !important;
-  border-bottom-right-radius: 12px !important;
 }
