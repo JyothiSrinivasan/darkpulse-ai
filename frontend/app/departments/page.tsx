@@ -1,140 +1,252 @@
-"use client";
+﻿'use client';
 
-import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import ModeBadge from "@/components/ModeBadge";
+import React from 'react';
+import Link from 'next/link';
+import { 
+  Building2, 
+  ShieldCheck, 
+  Terminal, 
+  Code2, 
+  Scale, 
+  DollarSign, 
+  Megaphone, 
+  Users,
+  ChevronRight
+} from 'lucide-react';
 
-interface AssignedAgent {
-  agent_id: string;
+interface Agent {
+  id: string;
   name: string;
-  icon: string;
-  mode: any;
+  mode: 'LIVE' | 'PREVIEW' | 'CONCEPT';
 }
 
 interface Department {
-  dept_id: string;
+  id: string;
   name: string;
-  icon: string;
+  icon: React.ReactNode;
   lead: string;
-  mission: string;
-  assigned_agents: AssignedAgent[];
+  description: string;
   responsibilities: string[];
+  agents: Agent[];
 }
 
 export default function DepartmentsPage() {
-  const [departments, setDepartments] = useState<Department[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/v1/departments")
-      .then((res) => res.json())
-      .then((data) => {
-        setDepartments(data.departments || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+  const departments: Department[] = [
+    {
+      id: 'executive-hr',
+      name: 'Executive Suite & HR Operations',
+      icon: <Users className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Executive oversight, risk governance, solo-founder workflow automation, and post-launch talent roadmap.',
+      responsibilities: [
+        'Single-pane-of-glass executive fleet oversight',
+        'Solo-founder AI workflow orchestration',
+        'Internal threat & identity risk policies'
+      ],
+      agents: [
+        { id: 'pulse_grid', name: 'PULSE-GRID', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'marketing-pr',
+      name: 'Marketing & Public Relations',
+      icon: <Megaphone className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Establishes DarkPulse AI as the most transparent AI cybersecurity brand, managing crisis communications and brand threat intelligence.',
+      responsibilities: [
+        'Brand sentiment & OSINT exposure tracking',
+        'Responsible breach disclosure messaging',
+        'Anti-fabrication marketing & transparency reporting'
+      ],
+      agents: [
+        { id: 'pulse_guard', name: 'PULSE-GUARD', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'sales-revenue',
+      name: 'Sales & Revenue',
+      icon: <Building2 className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Drives early access adoption, enterprise pricing packages, and client security audits.',
+      responsibilities: [
+        'Instant domain threat reports using PULSE-RECON',
+        'Executive PDF Security Report export value proposition',
+        'Tiered Pricing Architecture (Free, /mo Pro, Enterprise)'
+      ],
+      agents: [
+        { id: 'pulse_recon', name: 'PULSE-RECON', mode: 'PREVIEW' },
+        { id: 'pulse_breach', name: 'PULSE-BREACH', mode: 'PREVIEW' }
+      ]
+    },
+    {
+      id: 'soc-operations',
+      name: 'Customer Success & SOC Operations',
+      icon: <ShieldCheck className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Ensures seamless onboarding, email threat analysis, and rapid alert triage for clients.',
+      responsibilities: [
+        'Analyze suspicious emails for client staff using PULSE-LURE',
+        'Triage SIEM alerts and false positives using PULSE-WATCH',
+        'Deliver remediation playbooks for detected threat vectors'
+      ],
+      agents: [
+        { id: 'pulse_lure', name: 'PULSE-LURE', mode: 'PREVIEW' },
+        { id: 'pulse_watch', name: 'PULSE-WATCH', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'engineering',
+      name: 'Engineering & Infrastructure',
+      icon: <Code2 className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Maintains application security, network telemetry, and FastAPI backend microservices.',
+      responsibilities: [
+        'Scan repository source code for secrets using PULSE-CODE',
+        'Monitor network flow logs and lateral movement with PULSE-WIRE',
+        'FastAPI backend microservices & Orchestrator engine maintenance'
+      ],
+      agents: [
+        { id: 'pulse_code', name: 'PULSE-CODE', mode: 'CONCEPT' },
+        { id: 'pulse_wire', name: 'PULSE-WIRE', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'offensive-security',
+      name: 'Product & Offensive Security',
+      icon: <Terminal className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Defines simulation attack paths, incident containment strategies, and UX design.',
+      responsibilities: [
+        'Simulate attack paths and MITRE coverage using PULSE-PHANTOM',
+        'Guide containment playbooks during incidents with PULSE-STRIKE',
+        'Three-Mode Governance (LIVE, PREVIEW, CONCEPT) oversight'
+      ],
+      agents: [
+        { id: 'pulse_phantom', name: 'PULSE-PHANTOM', mode: 'CONCEPT' },
+        { id: 'pulse_strike', name: 'PULSE-STRIKE', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'legal-compliance',
+      name: 'Legal, Compliance & GRC',
+      icon: <Scale className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Enforces non-aggression scan policies, SOC 2 compliance, IAM audits, and data privacy.',
+      responsibilities: [
+        'Map controls to SOC 2 & ISO 27001 using PULSE-LEDGER',
+        'Audit identity access & impossible travel with PULSE-GATE',
+        'Discover exposed PII and enforce data encryption via PULSE-VAULT'
+      ],
+      agents: [
+        { id: 'pulse_ledger', name: 'PULSE-LEDGER', mode: 'CONCEPT' },
+        { id: 'pulse_gate', name: 'PULSE-GATE', mode: 'CONCEPT' },
+        { id: 'pulse_vault', name: 'PULSE-VAULT', mode: 'CONCEPT' }
+      ]
+    },
+    {
+      id: 'finance-cloud',
+      name: 'Finance & Cloud Operations',
+      icon: <DollarSign className="w-6 h-6 text-red-500" />,
+      lead: 'Jyothi Srinivasan (Founder)',
+      description: 'Audits cloud storage configurations, manages bootstrap budgets, and cloud billing.',
+      responsibilities: [
+        'Audit public AWS S3 buckets & blob storage using PULSE-NIMBUS',
+        'Manage 6-month bootstrap capital (- budget limit)',
+        'Stripe payment gateway integration & API cost modeling'
+      ],
+      agents: [
+        { id: 'pulse_nimbus', name: 'PULSE-NIMBUS', mode: 'LIVE' }
+      ]
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0F] text-[#E4E4E7] font-sans flex flex-col justify-between">
-      <Navbar />
-
-      <main className="max-w-7xl mx-auto px-6 py-10 w-full flex-1">
+    <div className="min-h-screen bg-[#030712] text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-10">
+        
         {/* Header */}
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <div className="inline-block px-3 py-1 rounded-full bg-[#13131A] border border-[#FF2D55]/30 text-[#FF2D55] text-xs font-mono mb-4 uppercase tracking-widest">
+        <div className="text-center space-y-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-red-950/50 border border-red-500/30 text-red-400">
             COMPANY OPERATING SYSTEM
-          </div>
-          <h1 className="text-4xl font-extrabold text-white mb-4">
-            DarkPulse AI <span className="text-[#FF2D55]">Department Hubs</span>
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            DarkPulse AI <span className="text-red-500">Department Hubs</span>
           </h1>
-          <p className="text-sm text-[#71717A] leading-relaxed">
-            Our 8 company operating departments manage specific AI agents across our 14-agent security fleet.
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+            Our 8 company operating departments manage specific AI agents across our 14-agent security fleet with full workspace integration.
           </p>
         </div>
 
-        {loading && (
-          <div className="py-20 text-center font-mono text-sm text-[#71717A]">
-            Connecting to DarkPulse Operational Engine...
-          </div>
-        )}
-
         {/* Departments Grid */}
-        {!loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {departments.map((dept) => (
-              <div
-                key={dept.dept_id}
-                className="bg-[#13131A] border border-[#1E1E2A] hover:border-[#FF2D55]/50 rounded-xl p-6 transition flex flex-col justify-between shadow-lg"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl p-3 bg-[#0A0A0F] border border-[#1E1E2A] rounded-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {departments.map((dept) => (
+            <div 
+              key={dept.id} 
+              className="bg-[#0f172a]/80 border border-slate-800 hover:border-red-500/40 rounded-xl p-6 transition-all duration-200 shadow-xl space-y-6 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 bg-slate-900 border border-slate-800 rounded-lg">
                       {dept.icon}
-                    </span>
+                    </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">{dept.name}</h3>
-                      <p className="text-xs text-[#FF2D55] font-mono mt-0.5">Department Lead: {dept.lead}</p>
+                      <h2 className="text-xl font-bold text-slate-100">{dept.name}</h2>
+                      <p className="text-xs text-red-400 font-mono mt-0.5">Department Lead: {dept.lead}</p>
                     </div>
                   </div>
+                </div>
 
-                  <p className="text-sm text-[#A1A1AA] mb-4 leading-relaxed bg-[#0A0A0F] p-3 rounded-lg border border-[#1E1E2A]/50">
-                    {dept.mission}
-                  </p>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  {dept.description}
+                </p>
 
-                  {/* Assigned Agents Section */}
-                  {dept.assigned_agents && dept.assigned_agents.length > 0 && (
-                    <div className="mb-6">
-                      <h4 className="text-xs font-mono text-[#FF2D55] uppercase tracking-wider mb-2 font-bold flex items-center gap-1.5">
-                        <span>🤖</span> Assigned Department Agents ({dept.assigned_agents.length}):
-                      </h4>
-                      <div className="space-y-2">
-                        {dept.assigned_agents.map((agent) => (
-                          <div
-                            key={agent.agent_id}
-                            className="bg-[#0A0A0F] border border-[#1E1E2A] hover:border-[#FF2D55] p-2.5 rounded-lg flex items-center justify-between transition"
-                          >
-                            <div className="flex items-center gap-2">
-                              <span className="text-lg">{agent.icon}</span>
-                              <span className="text-xs font-bold text-white">{agent.name}</span>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <ModeBadge mode={agent.mode} />
-                              <a
-                                href={`/agents/${agent.agent_id}`}
-                                className="text-xs font-mono text-[#FF2D55] hover:underline font-semibold"
-                              >
-                                Workspace →
-                              </a>
-                            </div>
-                          </div>
-                        ))}
+                {/* Assigned Agents */}
+                <div className="space-y-2 pt-2 border-t border-slate-800">
+                  <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
+                    Assigned Department Agents ({dept.agents.length}):
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {dept.agents.map((agent) => (
+                      <div 
+                        key={agent.id}
+                        className="flex items-center gap-2 bg-slate-900 border border-slate-700/60 rounded-lg px-3 py-1.5 text-xs font-mono"
+                      >
+                        <span className="text-slate-200 font-semibold">{agent.name}</span>
+                        <span className={px-1.5 py-0.5 rounded text-[10px] font-bold }>
+                          {agent.mode}
+                        </span>
+                        <Link 
+                          href={/agents/}
+                          className="ml-1 text-red-400 hover:text-red-300 flex items-center gap-0.5 font-bold"
+                        >
+                          workspace <ChevronRight className="w-3 h-3" />
+                        </Link>
                       </div>
-                    </div>
-                  )}
+                    ))}
+                  </div>
+                </div>
 
-                  {/* Key Responsibilities */}
-                  <h4 className="text-xs font-mono text-[#71717A] uppercase tracking-wider mb-2 font-bold">
+                {/* Responsibilities */}
+                <div className="space-y-2 pt-2 border-t border-slate-800">
+                  <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
                     Key Operational Responsibilities:
-                  </h4>
-                  <ul className="space-y-2 mb-2">
+                  </span>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     {dept.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="text-xs text-[#E4E4E7] flex items-start gap-2">
-                        <span className="text-[#FF2D55] font-bold">▸</span>
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-red-500 font-bold">•</span>
                         <span>{resp}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
-      </main>
+            </div>
+          ))}
+        </div>
 
-      <footer className="max-w-7xl mx-auto w-full text-center text-xs text-[#71717A] py-6 border-t border-[#13131A]">
-        © 2026 DarkPulse AI. Detect the Pulse of Every Threat.
-      </footer>
+      </div>
     </div>
   );
 }
