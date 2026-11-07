@@ -58,6 +58,7 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+```
 
 1. Backend Setup
 cd backend
