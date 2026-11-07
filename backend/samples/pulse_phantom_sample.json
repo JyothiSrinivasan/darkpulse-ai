@@ -1,0 +1,11 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: Attack Path Mapping for PULSE-PHANTOM.",
+  "objective": "Domain Admin Privilege Escalation",
+  "attack_path": [
+    "External Recon → Vulnerable Web Server (CVE-2023-XXXX) → Local User Access",
+    "Local User → Credential Dumping (LSASS) → Service Account Key",
+    "Service Account → Kerberoasting → Domain Admin Access"
+  ],
+  "detection_gap": "Lack of monitoring for Kerberos Service Ticket requests (T1558.003)."
+}

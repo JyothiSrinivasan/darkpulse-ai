@@ -1,0 +1,9 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: EDR Telemetry for PULSE-GUARD.",
+  "host": "WS-DEVELOPER-04",
+  "alerts": [
+    { "process": "powershell.exe", "command": "-EncodedCommand BASE64...", "risk": "high" },
+    { "process": "rundll32.exe", "action": "Network connection to 192.0.2.5", "risk": "medium" }
+  ]
+}

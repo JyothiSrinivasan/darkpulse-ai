@@ -1,0 +1,15 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: Simulated Incident Response playbook for PULSE-STRIKE.",
+  "analysis_id": "strike-9921",
+  "incident_type": "Ransomware Preparation Detected",
+  "status": "active_containment",
+  "findings": [
+    { "id": "ST-01", "title": "Shadow Copy Deletion Attempt", "severity": "critical", "description": "Attempted execution of 'vssadmin.exe delete shadows /all' blocked by EDR." }
+  ],
+  "containment_playbook": [
+    "Step 1: Isolate infected workstation from VLAN 10.",
+    "Step 2: Disable compromised service account 'svc_backup_mgr'.",
+    "Step 3: Trigger full endpoint scan on adjacent file servers."
+  ]
+}

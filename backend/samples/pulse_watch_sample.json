@@ -1,0 +1,31 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION ONLY: This analysis was generated from a pre-configured sample payload for PULSE-WATCH.",
+  "analysis_id": "concept-watch-8842",
+  "agent_id": "pulse_watch",
+  "alert_summary": {
+    "source_system": "Wazuh SIEM",
+    "rule_id": "100201",
+    "alert_name": "Multiple Failed SSH Logins Followed by Successful Login",
+    "source_ip": "198.51.100.45",
+    "target_user": "root",
+    "timestamp": "2026-11-07T12:00:00Z"
+  },
+  "triage_result": {
+    "verdict": "LIKELY_COMPROMISE",
+    "confidence_score": 0.89,
+    "severity": "HIGH",
+    "mitre_technique": "T1078 - Valid Accounts",
+    "risk_factors": [
+      "24 failed authentication attempts in 120 seconds",
+      "Login originating from unrecognized external IP",
+      "Immediate execution of 'whoami' and 'sudo -l' upon connection"
+    ]
+  },
+  "recommended_actions": [
+    "Isolate host 192.0.2.10 from primary network segment",
+    "Revoke active SSH session keys for user 'root'",
+    "Enforce password reset and trigger mandatory MFA re-authentication"
+  ],
+  "notes": "This demonstration illustrates how PULSE-WATCH triages SIEM alerts without manual SOC analyst intervention."
+}

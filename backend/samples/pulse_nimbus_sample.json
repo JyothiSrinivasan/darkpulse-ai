@@ -1,0 +1,11 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: AWS S3 Configuration Audit for PULSE-NIMBUS.",
+  "cloud_provider": "AWS",
+  "resource_audited": "darkpulse-client-data-prod",
+  "posture": "non_compliant",
+  "findings": [
+    { "id": "CLD-04", "title": "Public Read Access Enabled", "severity": "critical", "remediation": "Update S3 Bucket Policy to Block Public Access." },
+    { "id": "CLD-09", "title": "Versioning Disabled", "severity": "low", "remediation": "Enable bucket versioning to prevent accidental deletion." }
+  ]
+}

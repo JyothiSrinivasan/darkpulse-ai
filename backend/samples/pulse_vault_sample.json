@@ -1,0 +1,11 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: PII Discovery for PULSE-VAULT.",
+  "data_store": "Production_Postgres",
+  "inventory": {
+    "Credit Card Numbers": 450,
+    "SSNs": 120,
+    "Plaintext Passwords": 0
+  },
+  "encryption_status": "AES-256 Enabled"
+}

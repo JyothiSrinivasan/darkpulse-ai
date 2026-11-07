@@ -1,0 +1,10 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: SOC 2 Gap Analysis for PULSE-LEDGER.",
+  "framework": "SOC 2 Type II",
+  "readiness": "68%",
+  "missing_controls": [
+    "CC 6.1: Background checks not documented for 3 recent hires.",
+    "CC 7.2: Incident response test not performed in last 12 months."
+  ]
+}

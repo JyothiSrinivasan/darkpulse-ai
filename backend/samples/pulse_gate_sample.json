@@ -1,0 +1,8 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: IAM Audit for PULSE-GATE.",
+  "risk_score": 72,
+  "top_risk": "Impossible Travel Detected",
+  "details": "User 'j.smith' logged in from New York at 08:00 and London at 09:30.",
+  "recommendation": "Enforce immediate MFA reset for this identity."
+}

@@ -1,0 +1,9 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: SAST Scan for PULSE-CODE.",
+  "repo": "darkpulse-ai/backend",
+  "findings": [
+    { "file": "database.py", "line": 42, "issue": "Hardcoded DB Password", "severity": "high" },
+    { "file": "api/routes.py", "line": 12, "issue": "SQL Injection vulnerability in search param", "severity": "critical" }
+  ]
+}

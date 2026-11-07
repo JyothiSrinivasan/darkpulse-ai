@@ -1,0 +1,8 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: PLC Integrity for PULSE-GRID.",
+  "industrial_protocol": "Modbus TCP",
+  "device": "Schneider Electric PLC",
+  "anomaly": "Unauthorized Write Register Command",
+  "risk": "Potential process disruption in Cooling Subsystem."
+}

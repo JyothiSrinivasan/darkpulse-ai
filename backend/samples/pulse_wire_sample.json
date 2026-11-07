@@ -1,0 +1,12 @@
+{
+  "_mode": "CONCEPT",
+  "_sample_notice": "DEMONSTRATION: NetFlow Anomaly for PULSE-WIRE.",
+  "anomaly_detected": "Data Exfiltration to Unknown IP",
+  "details": {
+    "target": "203.0.113.88 (Uncategorized IP)",
+    "data_transferred": "4.2 GB",
+    "protocol": "HTTPS (Port 443)",
+    "duration": "14 minutes"
+  },
+  "verdict": "Suspicious: Transfer volume exceeds daily baseline by 800%."
+}
