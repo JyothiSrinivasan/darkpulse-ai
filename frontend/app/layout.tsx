@@ -20,10 +20,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en" className="dark">
-        <head>
-          <script src="https://cdn.tailwindcss.com"></script>
-        </head>
-        <body className="bg-[#050811] text-slate-100 min-h-screen antialiased bg-slate-950">
+        <body className="bg-[#050811] text-slate-100 min-h-screen antialiased">
           {children}
         </body>
       </html>
