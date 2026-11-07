@@ -21,24 +21,7 @@ export default function RootLayout({
     >
       <html lang="en" className="dark">
         <head>
-          {/* Production Tailwind CSS Engine */}
           <script src="https://cdn.tailwindcss.com"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                tailwind.config = {
-                  darkMode: 'class',
-                  theme: {
-                    extend: {
-                      colors: {
-                        brand: '#ef4444',
-                      }
-                    }
-                  }
-                }
-              `,
-            }}
-          />
         </head>
         <body className="bg-[#050811] text-slate-100 min-h-screen antialiased bg-slate-950">
           {children}
