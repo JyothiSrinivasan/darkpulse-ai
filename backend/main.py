@@ -1,7 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.routes import agents, analyses
 from backend.departments import get_all_departments
+
 
 app = FastAPI(
     title="DarkPulse AI",
