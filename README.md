@@ -60,26 +60,28 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
 ```
 
-1. Backend Setup
+### 1. Backend Setup
 cd backend
 python -m venv .venv
-# Activate: `source .venv/bin/activate` (Mac/Linux) or `.venv\Scripts\Activate.ps1` (Windows)
+## Activate: `source .venv/bin/activate` (Mac/Linux) or `.venv\Scripts\Activate.ps1` (Windows)
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 
-Backend runs at http://127.0.0.1:8000 (API Docs at /docs).
+### Backend runs at http://127.0.0.1:8000 (API Docs at /docs).
 
-2. Frontend Setup
+### 2. Frontend Setup
 cd frontend
 npm install
 npm run dev
 
-Frontend runs at http://localhost:3000.
+### Frontend runs at http://localhost:3000.
 
-🐳 Docker Deployment
+### 🐳 Docker Deployment
 Run the complete platform in isolated containers:
+
 docker-compose up --build
 
-📄 Contact
+### 📄 Contact
 Created by Jyothi Srinivasan.
+
 For inquiries, reach out at darkpulse.founder@gmail.com
