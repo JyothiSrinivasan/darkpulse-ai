@@ -1,7 +1,19 @@
+import os
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+# Add current folder and parent folder to Python system path
+current_dir = Path(__file__).resolve().parent
+parent_dir = current_dir.parent
+
+if str(current_dir) not in sys.path:
+  sys.path.insert(0, str(current_dir))
+if str(parent_dir) not in sys.path:
+  sys.path.insert(0, str(parent_dir))
+
+from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.routes import agents, analyses
