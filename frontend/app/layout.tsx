@@ -21,7 +21,7 @@ export default function RootLayout({
     >
       <html lang="en" className="dark">
         <head>
-          {/* Universal Tailwind Engine for Instant Production Rendering */}
+          {/* Production Tailwind CSS Engine */}
           <script src="https://cdn.tailwindcss.com"></script>
           <script
             dangerouslySetInnerHTML={{
