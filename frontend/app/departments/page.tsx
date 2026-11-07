@@ -14,24 +14,8 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-interface Agent {
-  id: string;
-  name: string;
-  mode: 'LIVE' | 'PREVIEW' | 'CONCEPT';
-}
-
-interface Department {
-  id: string;
-  name: string;
-  icon: React.ReactNode;
-  lead: string;
-  description: string;
-  responsibilities: string[];
-  agents: Agent[];
-}
-
 export default function DepartmentsPage() {
-  const departments: Department[] = [
+  const departments = [
     {
       id: 'executive-hr',
       name: 'Executive Suite & HR Operations',
@@ -43,9 +27,7 @@ export default function DepartmentsPage() {
         'Solo-founder AI workflow orchestration',
         'Internal threat & identity risk policies'
       ],
-      agents: [
-        { id: 'pulse_grid', name: 'PULSE-GRID', mode: 'CONCEPT' }
-      ]
+      agents: [{ id: 'pulse_grid', name: 'PULSE-GRID', mode: 'CONCEPT' }]
     },
     {
       id: 'marketing-pr',
@@ -58,9 +40,7 @@ export default function DepartmentsPage() {
         'Responsible breach disclosure messaging',
         'Anti-fabrication marketing & transparency reporting'
       ],
-      agents: [
-        { id: 'pulse_guard', name: 'PULSE-GUARD', mode: 'CONCEPT' }
-      ]
+      agents: [{ id: 'pulse_guard', name: 'PULSE-GUARD', mode: 'CONCEPT' }]
     },
     {
       id: 'sales-revenue',
@@ -154,17 +134,13 @@ export default function DepartmentsPage() {
         'Manage 6-month bootstrap capital (- budget limit)',
         'Stripe payment gateway integration & API cost modeling'
       ],
-      agents: [
-        { id: 'pulse_nimbus', name: 'PULSE-NIMBUS', mode: 'LIVE' }
-      ]
+      agents: [{ id: 'pulse_nimbus', name: 'PULSE-NIMBUS', mode: 'LIVE' }]
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#030712] text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-10">
-        
-        {/* Header */}
         <div className="text-center space-y-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-red-950/50 border border-red-500/30 text-red-400">
             COMPANY OPERATING SYSTEM
@@ -177,7 +153,6 @@ export default function DepartmentsPage() {
           </p>
         </div>
 
-        {/* Departments Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {departments.map((dept) => (
             <div 
@@ -197,11 +172,8 @@ export default function DepartmentsPage() {
                   </div>
                 </div>
 
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  {dept.description}
-                </p>
+                <p className="text-slate-300 text-sm leading-relaxed">{dept.description}</p>
 
-                {/* Assigned Agents */}
                 <div className="space-y-2 pt-2 border-t border-slate-800">
                   <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
                     Assigned Department Agents ({dept.agents.length}):
@@ -227,7 +199,6 @@ export default function DepartmentsPage() {
                   </div>
                 </div>
 
-                {/* Responsibilities */}
                 <div className="space-y-2 pt-2 border-t border-slate-800">
                   <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
                     Key Operational Responsibilities:
@@ -245,7 +216,6 @@ export default function DepartmentsPage() {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );
