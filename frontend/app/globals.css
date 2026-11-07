@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -85,7 +87,7 @@ body {
 /* User Email & Identifier Header */
 .cl-userButtonPopoverIdentifier,
 .cl-userPreviewSecondaryIdentifier {
-  color: #38bdf8 !important; /* Bright cyan email address */
+  color: #38bdf8 !important;
   font-weight: 600 !important;
 }
 
@@ -102,13 +104,13 @@ body {
 
 /* Popover Action Button Labels & Icons */
 .cl-userButtonPopoverActionButtonText {
-  color: #f8fafc !important; /* Bright crisp white text */
+  color: #f8fafc !important;
   font-weight: 600 !important;
   font-size: 0.95rem !important;
 }
 
 .cl-userButtonPopoverActionButtonIcon {
-  color: #ef4444 !important; /* Red icons for Sign out and options */
+  color: #ef4444 !important;
 }
 
 /* Popover Footer */

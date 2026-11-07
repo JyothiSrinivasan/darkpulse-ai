@@ -56,8 +56,8 @@ async def health_check():
     }
 
 @app.get("/")
-async def root():
+def root():
     return {
         "message": "DarkPulse AI Backend is active.",
-        "docs": "Visit http://127.0.0.1:8000/docs for the interactive API explorer."
+        "docs": "/docs"
     }
