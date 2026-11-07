@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Clerk Dark Mode High-Contrast Overrides */
+.cl-card, 
+.cl-signIn-start, 
+.cl-signUp-start,
+.cl-footer,
+.cl-footerAction {
+  background-color: #13131A !important;
+  border: 1px solid #1E1E2A !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.cl-headerTitle,
+.cl-formFieldLabel,
+.cl-identityPreviewText,
+.cl-formHeaderTitle,
+.cl-dividerText,
+.cl-socialButtonsBlockButtonText {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+.cl-headerSubtitle,
+.cl-formHeaderSubtitle,
+.cl-footerActionText,
+.cl-formFieldHintText {
+  color: #A1A1AA !important;
+}
+
+.cl-formFieldInput {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  border: 1px solid #1E1E2A !important;
+}
+
+.cl-formFieldInput:focus {
+  border-color: #FF2D55 !important;
+}
+
+.cl-formButtonPrimary {
+  background-color: #FF2D55 !important;
+  color: #FFFFFF !important;
+}
+
+.cl-formButtonPrimary:hover {
+  background-color: #e0264c !important;
+}
+
+.cl-footerActionLink {
+  color: #FF2D55 !important;
+  font-weight: 600 !important;
+}
+
+.cl-userButtonPopoverCard {
+  background-color: #13131A !important;
+  border: 1px solid #1E1E2A !important;
+  color: #FFFFFF !important;
+}
+
