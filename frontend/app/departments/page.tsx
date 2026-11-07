@@ -51,7 +51,7 @@ export default function DepartmentsPage() {
       responsibilities: [
         'Instant domain threat reports using PULSE-RECON',
         'Executive PDF Security Report export value proposition',
-        'Tiered Pricing Architecture (Free, /mo Pro, Enterprise)'
+        'Tiered Pricing Architecture (Free, $299/mo Pro, Enterprise)'
       ],
       agents: [
         { id: 'pulse_recon', name: 'PULSE-RECON', mode: 'PREVIEW' },
@@ -131,7 +131,7 @@ export default function DepartmentsPage() {
       description: 'Audits cloud storage configurations, manages bootstrap budgets, and cloud billing.',
       responsibilities: [
         'Audit public AWS S3 buckets & blob storage using PULSE-NIMBUS',
-        'Manage 6-month bootstrap capital (- budget limit)',
+        'Manage 6-month bootstrap capital ($80-$660 budget limit)',
         'Stripe payment gateway integration & API cost modeling'
       ],
       agents: [{ id: 'pulse_nimbus', name: 'PULSE-NIMBUS', mode: 'LIVE' }]
@@ -179,23 +179,31 @@ export default function DepartmentsPage() {
                     Assigned Department Agents ({dept.agents.length}):
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {dept.agents.map((agent) => (
-                      <div 
-                        key={agent.id}
-                        className="flex items-center gap-2 bg-slate-900 border border-slate-700/60 rounded-lg px-3 py-1.5 text-xs font-mono"
-                      >
-                        <span className="text-slate-200 font-semibold">{agent.name}</span>
-                        <span className={px-1.5 py-0.5 rounded text-[10px] font-bold }>
-                          {agent.mode}
-                        </span>
-                        <Link 
-                          href={/agents/}
-                          className="ml-1 text-red-400 hover:text-red-300 flex items-center gap-0.5 font-bold"
+                    {dept.agents.map((agent) => {
+                      const badgeStyle = agent.mode === 'LIVE' 
+                        ? 'bg-emerald-950 text-emerald-400 border-emerald-500/30' 
+                        : agent.mode === 'PREVIEW'
+                        ? 'bg-amber-950 text-amber-400 border-amber-500/30'
+                        : 'bg-slate-800 text-slate-400 border-slate-700';
+
+                      return (
+                        <div 
+                          key={agent.id}
+                          className="flex items-center gap-2 bg-slate-900 border border-slate-700/60 rounded-lg px-3 py-1.5 text-xs font-mono"
                         >
-                          workspace <ChevronRight className="w-3 h-3" />
-                        </Link>
-                      </div>
-                    ))}
+                          <span className="text-slate-200 font-semibold">{agent.name}</span>
+                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold border ${badgeStyle}`}>
+                            {agent.mode}
+                          </span>
+                          <Link 
+                            href={`/agents/${agent.id}`}
+                            className="ml-1 text-red-400 hover:text-red-300 flex items-center gap-0.5 font-bold"
+                          >
+                            workspace <ChevronRight className="w-3 h-3" />
+                          </Link>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
